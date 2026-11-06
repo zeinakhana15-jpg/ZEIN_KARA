@@ -1,0 +1,11 @@
+
+{
+  "name": "CODE SD KARA",
+  "short_name": "SD KARA",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#080808",
+  "description": "Checkban et analyse simulée",
+  "icons": []
+}
