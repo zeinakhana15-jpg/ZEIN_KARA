@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<link rel="manifest" href="manifest.json">
+<title>CODE SD KARA</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ background:#080808;
+ color:white;
+ font-family:Arial,sans-serif;
+ text-align:center;
+}
+header{
+ padding:25px 10px;
+ background:linear-gradient(135deg,#111,#351010);
+ border-bottom:2px solid #b80000;
+}
+h1{color:#ff3030;font-size:25px}
+.container{padding:20px}
+.card{
+ background:#151515;
+ border:1px solid #5b1717;
+ border-radius:15px;
+ padding:20px;
+ margin:15px auto;
+ max-width:450px;
+}
+input{
+ width:100%;
+ padding:15px;
+ margin:12px 0;
+ background:#080808;
+ border:1px solid #777;
+ border-radius:8px;
+ color:white;
+ font-size:16px;
+}
+button{
+ width:100%;
+ padding:14px;
+ margin:8px 0;
+ border:0;
+ border-radius:8px;
+ background:#b50000;
+ color:white;
+ font-weight:bold;
+ font-size:15px;
+}
+button:active{background:#ff3030}
+#result{
+ margin-top:20px;
+ padding:15px;
+ background:#222;
+ border-radius:10px;
+ line-height:1.7;
+}
+small{color:#999}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>𝐂𝚯𝐃𝚵 𝛅፝֟፝͜𝒟 𝐊𝚫𝐑𝚫</h1>
+<p>WHATSAPP CHECKBAN SYSTEM</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+<h2>⚖️ BAN CHECKER</h2>
+<p>Entrez un numéro pour effectuer une simulation.</p>
+
+<input id="phone" type="tel"
+placeholder="+243XXXXXXXXX">
+
+<button onclick="checkBan()">
+🔍 LANCER LE CHECKBAN
+</button>
+
+<button onclick="analyze()">
+⚙️ ANALYSER LE NUMÉRO
+</button>
+
+<button onclick="resetApp()">
+↻ RÉINITIALISER
+</button>
+
+<div id="result">
+En attente d'une analyse...
+</div>
+</div>
+
+<div class="card">
+<h3>🛡️ SYSTEM STATUS</h3>
+<p>Mode : SIMULATION</p>
+<p>Protection : ACTIVE</p>
+<p>Version : 1.0</p>
+</div>
+
+</div>
+
+<footer>
+<small>POWERED BY CODE SD KARA</small>
+</footer>
+
+<script>
+function checkBan(){
+ let number=document.getElementById("phone").value.trim();
+ let result=document.getElementById("result");
+
+ if(!number){
+ result.innerHTML="⚠️ Entrez un numéro valide.";
+ return;
+ }
+
+ if(!/^\+?[0-9]{8,15}$/.test(number)){
+ result.innerHTML="❌ Format du numéro incorrect.";
+ return;
+ }
+
+ result.innerHTML=`
+ <h3>CHECKBAN TERMINÉ</h3>
+ Numéro : ${number}<br>
+ Statut : NON VÉRIFIÉ<br>
+ Mode : SIMULATION<br>
+ <p>Cette application ne consulte pas les serveurs WhatsApp.</p>
+ `;
+}
+
+function analyze(){
+ let number=document.getElementById("phone").value.trim();
+ let result=document.getElementById("result");
+
+ if(!number){
+ result.innerHTML="⚠️ Entrez un numéro.";
+ return;
+ }
+
+ if(!/^\+?[0-9]{8,15}$/.test(number)){
+ result.innerHTML="❌ Numéro invalide.";
+ return;
+ }
+
+ let digits=number.replace(/\D/g,"");
+
+ result.innerHTML=`
+ <h3>ANALYSE TERMINÉE</h3>
+ Numéro : ${number}<br>
+ Nombre de chiffres : ${digits.length}<br>
+ Format : VALIDE<br>
+ Vérification WhatsApp : NON DISPONIBLE
+ `;
+}
+
+function resetApp(){
+ document.getElementById("phone").value="";
+ document.getElementById("result").innerHTML=
+ "En attente d'une analyse...";
+}
+</script>
+
+</body>
+</html>
